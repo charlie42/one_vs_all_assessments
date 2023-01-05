@@ -1,15 +1,16 @@
 # Expected folder structure:
-#   - all_assessments_test.joblib
-#   - [Assessment name]
+#   - ../diagnosis_predictor_data
 #       - reports
 #           - evaluate_models_on_feature_subsets
-#               - performances-on-feature-subsets.joblib
-
-# all_assessments_test.joblib is a two-level dictionary where the first level keys are diganoses, the second level keys are numbers of features, 
-#   and the values are the AUC for each diagnosis on each number of features using ALL assessments
-# performances-on-feature-subsets.joblib is a two-level dictionary where the first level keys are diganoses, the second level keys are numbers of features, 
-#   and the values are an array of metrics for each diagnosis on each number of features using a single assessment, the assessment name is the folder name
-#   ([Assessment name]). AUC is the first value of the array
+#               - 2023-01-03 17.51.26___first_dropped_assessment__ICU_P___other_diag_as_input__0___debug_mode__True
+#                   - performances-on-feature-subsets.joblib
+#               - 2023-01-03 17.51.26___single_assessment_used__ICU_P___other_diag_as_input__0___debug_mode__True
+#                   - performances-on-feature-subsets.joblib
+ 
+# performances-on-feature-subsets.joblib is a two-level dictionary where the first level keys are diganoses, the second level keys are numbers of features,
+#   and the values are an array of metrics for each diagnosis on each number of features. AUC is the first value of the array
+# Folder name containing "first_dropped_assessment" contains performance on all assessment.
+# Folder names containing "single_assessment_used" contain performance on a single assessment.
 
 # Output: 
 # For each diagnosis, print:
@@ -44,25 +45,30 @@ def get_optimal_nb_features(auc_table, diag):
     # Get index of the first row with a score >= optimal_score
     return auc_table[diag][auc_table[diag] >= optimal_score].index[0]
 
+def get_newest_non_empty_dir_in_dir_containing_string(path, string):
+    dirs = [path+d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
+    dirs = [d for d in dirs if len(os.listdir(d)) > 0] # non empty
+    dirs = [d for d in dirs if string in d] # contains string
+    return max(dirs, key=os.path.getmtime) + "/"
+
+data_path = os.path.join('../diagnosis_predictor_data', 'reports', 'evaluate_models_on_feature_subsets')
+
 # Load all_assessments_test.joblib
-all_assessments = joblib.load('data/performances-on-feature-subsets.joblib')
+newest_all_assessments_dir = get_newest_non_empty_dir_in_dir_containing_string("../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/", "first_dropped_assessment")
+all_assessments = joblib.load(os.path.join(data_path, newest_all_assessments_dir, 'performances-on-feature-subsets.joblib'))
 # Make df from all_assessments_test.joblib
 all_assessments_df = make_table_from_auc_dict(all_assessments)
 
 aucs_using_one_assessment = {}
-data_path = './data/'
-for assessment_name in os.listdir(data_path):
 
-    if (not os.path.isdir(data_path+assessment_name)) or assessment_name.startswith('.'):
-        continue
-
-    #if assessment_name in ["CBCL", "SympChck", "SRS"]: # DEBUG
-    #    continue
+for assessment_name in assessment_item_counts.keys():
 
     aucs_using_one_assessment[assessment_name] = {}
-    
+
     # Load performances-on-feature-subsets.joblib for current assessment
-    single_assessment = joblib.load(os.path.join('data', assessment_name, 'reports', 'evaluate_models_on_feature_subsets', 'performances-on-feature-subsets.joblib'))
+    assessment_file_name = get_newest_non_empty_dir_in_dir_containing_string(data_path, assessment_name)
+    path = os.path.join(data_path, assessment_file_name, 'performances-on-feature-subsets.joblib')
+    single_assessment = joblib.load(path)
     subset_auc_df = make_table_from_auc_dict(single_assessment)
     
     aucs_using_one_assessment[assessment_name] = subset_auc_df
