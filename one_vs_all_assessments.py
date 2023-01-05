@@ -51,13 +51,14 @@ def get_newest_non_empty_dir_in_dir_containing_string(path, string):
     dirs = [d for d in dirs if string in d] # contains string
     return max(dirs, key=os.path.getmtime) + "/"
 
-data_path = os.path.join('../diagnosis_predictor_data', 'reports', 'evaluate_models_on_feature_subsets')
+data_path = '../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/'
 
 # Load all_assessments_test.joblib
 newest_all_assessments_dir = get_newest_non_empty_dir_in_dir_containing_string("../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/", "first_dropped_assessment")
-all_assessments = joblib.load(os.path.join(data_path, newest_all_assessments_dir, 'performances-on-feature-subsets.joblib'))
+all_assessments = joblib.load(os.path.join(newest_all_assessments_dir, 'performances-on-feature-subsets.joblib'))
 # Make df from all_assessments_test.joblib
 all_assessments_df = make_table_from_auc_dict(all_assessments)
+print(all_assessments_df)
 
 aucs_using_one_assessment = {}
 
@@ -66,8 +67,8 @@ for assessment_name in assessment_item_counts.keys():
     aucs_using_one_assessment[assessment_name] = {}
 
     # Load performances-on-feature-subsets.joblib for current assessment
-    assessment_file_name = get_newest_non_empty_dir_in_dir_containing_string(data_path, assessment_name)
-    path = os.path.join(data_path, assessment_file_name, 'performances-on-feature-subsets.joblib')
+    assessment_dir = get_newest_non_empty_dir_in_dir_containing_string(data_path, assessment_name)
+    path = os.path.join(assessment_dir, 'performances-on-feature-subsets.joblib')
     single_assessment = joblib.load(path)
     subset_auc_df = make_table_from_auc_dict(single_assessment)
     
@@ -75,7 +76,8 @@ for assessment_name in assessment_item_counts.keys():
 
 # Find best assessment for each diagnosis
 best_assessment_per_diagnosis_and_score = {}
-diags = list(all_assessments.keys())
+
+diags = set(all_assessments.keys())
 print(diags)
 
 for diag in diags:
