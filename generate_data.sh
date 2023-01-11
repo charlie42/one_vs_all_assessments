@@ -1,6 +1,6 @@
 # First switch to single-assessment-as-input branch of diagnosis-predictor, then run:
 
-python -W ignore src/data/make_dataset.py ICU_P
+python -W ignore src/data/make_dataset.py 0 ICU_P
 
 python -W ignore src/models/train_models.py 0.02 0 0 ARI_P
 python -W ignore src/models/identify_feature_subsets.py 126 0
