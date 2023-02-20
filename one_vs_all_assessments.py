@@ -3,13 +3,11 @@
 #       - reports
 #           - evaluate_models_on_feature_subsets
 #               - 2023-01-03 17.51.26___first_dropped_assessment__ICU_P___other_diag_as_input__0___debug_mode__True
-#                   - performances-on-feature-subsets.joblib
+#                   - auc-on-subsets-test-set-optimal-threshold.csv
 #               - 2023-01-03 17.51.26___single_assessment_used__ICU_P___other_diag_as_input__0___debug_mode__True
-#                   - performances-on-feature-subsets.joblib
+#                   - auc-on-subsets-test-set-optimal-threshold.csv
  
-# performances-on-feature-subsets.joblib is a two-level dictionary where the first level keys are diganoses, the second level keys are numbers of features,
-#   and the values are an array of metrics for each diagnosis on each number of features. AUC is the first value of the array
-# Folder name containing "first_dropped_assessment" contains performance on all assessment.
+# Folder name containing "first_dropped_assessment" contains performance on all assessments.
 # Folder names containing "single_assessment_used" contain performance on a single assessment.
 
 # Output: 
@@ -21,18 +19,8 @@
 #   5/ the number of features where AUC on the best assessment on reaches the AUC on the best assessment on all features - 0.01
 #   6/ the number where AUC on all assessments reaches the value the AUC on the best assessment on all features - 0.01
 
-import joblib
 import os
 import pandas as pd
-
-assessment_item_counts = {"ARI_P": 7, "ASSQ": 27, "CBCL": 121, "SCQ": 40, "SDQ": 33, "SRS": 65, "SWAN": 18, "SympChck": 126}
-
-def make_table_from_auc_dict(auc_dict):
-    auc_on_subsets = pd.DataFrame.from_dict(auc_dict)
-    auc_on_subsets.index = range(1, len(auc_on_subsets)+1)
-    auc_on_subsets = auc_on_subsets.rename(columns={"index": "Diagnosis"})
-    auc_on_subsets = auc_on_subsets.apply(lambda x: x.str[0])
-    return auc_on_subsets
 
 def get_num_features_for_best_assessment(diag):
     # Get the number of features for the best assessment
@@ -53,11 +41,11 @@ def get_newest_non_empty_dir_in_dir_containing_string(path, string):
 
 data_path = '../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/'
 
-# Load all_assessments_test.joblib
+assessment_item_counts = {"ARI_P": 7, "ASSQ": 27, "CBCL": 121, "SCQ": 40, "SDQ": 33, "SRS": 65, "SWAN": 18, "SympChck": 126}
+
+# Load AUCs when using all assessments
 newest_all_assessments_dir = get_newest_non_empty_dir_in_dir_containing_string("../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/", "first_dropped_assessment")
-all_assessments = joblib.load(os.path.join(newest_all_assessments_dir, 'performances-on-feature-subsets.joblib'))
-# Make df from all_assessments_test.joblib
-all_assessments_df = make_table_from_auc_dict(all_assessments)
+all_assessments_df = pd.read_csv(newest_all_assessments_dir + "auc-on-subsets-test-set-optimal-threshold.csv", index_col=0).iloc[::-1]
 print(all_assessments_df)
 
 aucs_using_one_assessment = {}
@@ -68,16 +56,12 @@ for assessment_name in assessment_item_counts.keys():
 
     # Load performances-on-feature-subsets.joblib for current assessment
     assessment_dir = get_newest_non_empty_dir_in_dir_containing_string(data_path, assessment_name)
-    path = os.path.join(assessment_dir, 'performances-on-feature-subsets.joblib')
-    single_assessment = joblib.load(path)
-    subset_auc_df = make_table_from_auc_dict(single_assessment)
-    
-    aucs_using_one_assessment[assessment_name] = subset_auc_df
+    aucs_using_one_assessment[assessment_name] = pd.read_csv(assessment_dir + "auc-on-subsets-test-set-optimal-threshold.csv", index_col=0).iloc[::-1]
 
 # Find best assessment for each diagnosis
 best_assessment_per_diagnosis_and_score = {}
 
-diags = set(all_assessments.keys())
+diags = set(all_assessments_df.columns)
 print(diags)
 
 for diag in diags:
@@ -114,11 +98,14 @@ for diag in diags:
     ## 4
 
     # Find the number of features where AUC on all assessments reaches the AUC on all features on the best assessment
-    best_assessment_num_features = get_num_features_for_best_assessment(diag)
     best_assessment, best_score = best_assessment_per_diagnosis_and_score[diag]
 
     # Get number of features where AUC on all assessments reaches the AUC on all features on the best assessment
-    num_features = all_assessments_df[diag][all_assessments_df[diag] >= best_score].index[0]
+    # Catch index error if the best score is not reached
+    try:
+        num_features = all_assessments_df[diag][all_assessments_df[diag] >= best_score].index[0]
+    except IndexError:
+        num_features = "not reached"
 
     print(f'The number of features where AUC on all assessments reaches the AUC on the best assessment ({best_assessment}, {best_score:.2f}) for the diagnosis is {num_features}')
 
@@ -132,7 +119,10 @@ for diag in diags:
 
     # Get number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features - 0.01
     auc_on_optimal_nb_features_of_best_assessement = aucs_using_one_assessment[best_assessment][diag][optimal_nb_features_of_best_assessement]
-    nb_features_same_auc_as_on_optimal_on_best_assessment = all_assessments_df[diag][all_assessments_df[diag] >= auc_on_optimal_nb_features_of_best_assessement].index[0]
+    try:
+        nb_features_same_auc_as_on_optimal_on_best_assessment = all_assessments_df[diag][all_assessments_df[diag] >= auc_on_optimal_nb_features_of_best_assessement].index[0]
+    except IndexError:
+        nb_features_same_auc_as_on_optimal_on_best_assessment = "not reached"
     print(f"The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features ({best_assessment_num_features}) - 0.01 ({(best_score - 0.01):.2f}) is {nb_features_same_auc_as_on_optimal_on_best_assessment}")
 
 
