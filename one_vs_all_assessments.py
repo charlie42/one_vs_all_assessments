@@ -18,6 +18,7 @@
 #   4/ the number of features where AUC on all assessments reaches the AUC on all features on the best assessment
 #   5/ the number of features where AUC on the best assessment on reaches the AUC on the best assessment on all features - 0.01
 #   6/ the number where AUC on all assessments reaches the value the AUC on the best assessment on all features - 0.01
+#   7/ the AUC when scored manually (best among all total and subscale scores)
 
 import os
 import pandas as pd
@@ -45,6 +46,7 @@ assessment_item_counts = {"ARI_P": 7, "ASSQ": 27, "CBCL": 121, "SCQ": 40, "SDQ":
 
 # Load AUCs when using all assessments
 newest_all_assessments_dir = get_newest_non_empty_dir_in_dir_containing_string("../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/", "first_dropped_assessment")
+print(newest_all_assessments_dir)
 all_assessments_df = pd.read_csv(newest_all_assessments_dir + "auc-on-subsets-test-set-optimal-threshold.csv", index_col=0).iloc[::-1]
 print(all_assessments_df)
 
@@ -56,10 +58,14 @@ for assessment_name in assessment_item_counts.keys():
 
     # Load performances-on-feature-subsets.joblib for current assessment
     assessment_dir = get_newest_non_empty_dir_in_dir_containing_string(data_path, assessment_name)
+    print(assessment_dir)
     aucs_using_one_assessment[assessment_name] = pd.read_csv(assessment_dir + "auc-on-subsets-test-set-optimal-threshold.csv", index_col=0).iloc[::-1]
 
 # Find best assessment for each diagnosis
 best_assessment_per_diagnosis_and_score = {}
+
+# Get AUCs from manual scoring
+manual_scoring_df = pd.read_csv("../HBN-scripts/output/score_manually.csv")
 
 diags = set(all_assessments_df.columns)
 print(diags)
@@ -125,4 +131,7 @@ for diag in diags:
         nb_features_same_auc_as_on_optimal_on_best_assessment = "not reached"
     print(f"The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features ({best_assessment_num_features}) - 0.01 ({(best_score - 0.01):.2f}) is {nb_features_same_auc_as_on_optimal_on_best_assessment}")
 
+    ## 7
+    manual_auc = manual_scoring_df["AUC"][manual_scoring_df["Diag"] == diag].iloc[-1]
+    print(f"The AUC using manual scoring is {manual_auc:.2f}")
 

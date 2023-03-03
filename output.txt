@@ -1,3 +1,4 @@
+../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/2023-02-10 15.37.35___first_dropped_assessment__ICU_P___other_diag_as_input__0___debug_mode__False/
                     Diag.Autism Spectrum Disorder  ...  Diag.Specific Learning Disorder with Impairment in Written Expression
 Number of features                                 ...                                                                       
 1                                        0.763801  ...                                           0.498950                    
@@ -13,117 +14,15 @@ Number of features                                 ...
 126                                      0.899135  ...                                           0.606061                    
 
 [126 rows x 17 columns]
-{'Diag.Oppositional Defiant Disorder', 'Diag.Generalized Anxiety Disorder', 'Diag.Specific Learning Disorder with Impairment in Reading', 'Diag.No Diagnosis Given', 'Diag.Specific Learning Disorder with Impairment in Written Expression', 'Diag.ADHD-Combined Type', 'Diag.Other Specified Anxiety Disorder', 'Diag.Specific Phobia', 'Diag.Enuresis', 'Diag.Separation Anxiety', 'Diag.Other Specified Attention-Deficit.Hyperactivity Disorder', 'Diag.Autism Spectrum Disorder', 'Diag.Major Depressive Disorder', 'Diag.Language Disorder', 'Diag.Specific Learning Disorder with Impairment in Mathematics', 'Diag.ADHD-Inattentive Type', 'Diag.Social Anxiety (Social Phobia)'}
-
-
-	 Diag.Oppositional Defiant Disorder
-
-
-CBCL has the highest AUC on all features with a value of 0.86
-The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.86
-The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.86) for the diagnosis is 3
-The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.85) is 8
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.85) is 3
-
-
-	 Diag.Generalized Anxiety Disorder
-
-
-CBCL has the highest AUC on all features with a value of 0.83
-The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.85
-The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.83) for the diagnosis is 3
-The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.82) is 13
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.82) is 2
-
-
-	 Diag.Specific Learning Disorder with Impairment in Reading
-
-
-CBCL has the highest AUC on all features with a value of 0.64
-The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.78
-The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.64) for the diagnosis is 2
-The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.63) is 4
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.63) is 2
-
-
-	 Diag.No Diagnosis Given
-
-
-CBCL has the highest AUC on all features with a value of 0.76
-The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.78
-The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.76) for the diagnosis is 10
-The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.75) is 72
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.75) is 7
-
-
-	 Diag.Specific Learning Disorder with Impairment in Written Expression
-
-
-SWAN has the highest AUC on all features with a value of 0.57
-The AUC on all assessments on the number of features equal to number of features on the best assessment (SWAN, 18) for the diagnosis is 0.56
-The number of features where AUC on all assessments reaches the AUC on the best assessment (SWAN, 0.57) for the diagnosis is 4
-The number of features where AUC on the best assessment (SWAN) reaches the AUC on the best assessment on all features (18) - 0.01 (0.56) is 8
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (18) - 0.01 (0.56) is 6
-
-
-	 Diag.ADHD-Combined Type
-
-
-SWAN has the highest AUC on all features with a value of 0.85
-The AUC on all assessments on the number of features equal to number of features on the best assessment (SWAN, 18) for the diagnosis is 0.86
-The number of features where AUC on all assessments reaches the AUC on the best assessment (SWAN, 0.85) for the diagnosis is 5
-The number of features where AUC on the best assessment (SWAN) reaches the AUC on the best assessment on all features (18) - 0.01 (0.84) is 5
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (18) - 0.01 (0.84) is 4
-
-
-	 Diag.Other Specified Anxiety Disorder
-
-
-SympChck has the highest AUC on all features with a value of 0.66
-The AUC on all assessments on the number of features equal to number of features on the best assessment (SympChck, 126) for the diagnosis is 0.62
-The number of features where AUC on all assessments reaches the AUC on the best assessment (SympChck, 0.66) for the diagnosis is not reached
-The number of features where AUC on the best assessment (SympChck) reaches the AUC on the best assessment on all features (126) - 0.01 (0.65) is 104
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (126) - 0.01 (0.65) is not reached
-
-
-	 Diag.Specific Phobia
-
-
-SympChck has the highest AUC on all features with a value of 0.76
-The AUC on all assessments on the number of features equal to number of features on the best assessment (SympChck, 126) for the diagnosis is 0.78
-The number of features where AUC on all assessments reaches the AUC on the best assessment (SympChck, 0.76) for the diagnosis is 5
-The number of features where AUC on the best assessment (SympChck) reaches the AUC on the best assessment on all features (126) - 0.01 (0.75) is 6
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (126) - 0.01 (0.75) is 3
-
-
-	 Diag.Enuresis
-
-
-CBCL has the highest AUC on all features with a value of 0.81
-The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.88
-The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.81) for the diagnosis is 2
-The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.80) is 2
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.80) is 2
-
-
-	 Diag.Separation Anxiety
-
-
-SympChck has the highest AUC on all features with a value of 0.84
-The AUC on all assessments on the number of features equal to number of features on the best assessment (SympChck, 126) for the diagnosis is 0.82
-The number of features where AUC on all assessments reaches the AUC on the best assessment (SympChck, 0.84) for the diagnosis is not reached
-The number of features where AUC on the best assessment (SympChck) reaches the AUC on the best assessment on all features (126) - 0.01 (0.83) is 5
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (126) - 0.01 (0.83) is 17
-
-
-	 Diag.Other Specified Attention-Deficit.Hyperactivity Disorder
-
-
-CBCL has the highest AUC on all features with a value of 0.71
-The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.68
-The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.71) for the diagnosis is not reached
-The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.70) is 9
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.70) is not reached
+../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/2023-02-08 10.48.52___single_assessment_used__ARI_P___other_diag_as_input__0___debug_mode__False/
+../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/2023-02-08 12.25.50___single_assessment_used__ASSQ___other_diag_as_input__0___debug_mode__False/
+../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/2023-02-12 08.51.56___single_assessment_used__CBCL___other_diag_as_input__0___debug_mode__False/
+../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/2023-02-12 15.47.10___single_assessment_used__SCQ___other_diag_as_input__0___debug_mode__False/
+../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/2023-02-12 18.28.16___single_assessment_used__SDQ___other_diag_as_input__0___debug_mode__False/
+../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/2023-02-13 15.01.16___single_assessment_used__SRS___other_diag_as_input__0___debug_mode__False/
+../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/2023-02-13 19.41.19___single_assessment_used__SWAN___other_diag_as_input__0___debug_mode__False/
+../diagnosis_predictor_data/reports/evaluate_models_on_feature_subsets/2023-02-18 23.34.50___single_assessment_used__SympChck___other_diag_as_input__0___debug_mode__False/
+{'Diag.Autism Spectrum Disorder', 'Diag.Social Anxiety (Social Phobia)', 'Diag.Specific Learning Disorder with Impairment in Reading', 'Diag.Other Specified Anxiety Disorder', 'Diag.Separation Anxiety', 'Diag.Generalized Anxiety Disorder', 'Diag.Specific Learning Disorder with Impairment in Mathematics', 'Diag.Specific Phobia', 'Diag.ADHD-Combined Type', 'Diag.ADHD-Inattentive Type', 'Diag.Major Depressive Disorder', 'Diag.No Diagnosis Given', 'Diag.Language Disorder', 'Diag.Other Specified Attention-Deficit.Hyperactivity Disorder', 'Diag.Oppositional Defiant Disorder', 'Diag.Enuresis', 'Diag.Specific Learning Disorder with Impairment in Written Expression'}
 
 
 	 Diag.Autism Spectrum Disorder
@@ -134,46 +33,7 @@ The AUC on all assessments on the number of features equal to number of features
 The number of features where AUC on all assessments reaches the AUC on the best assessment (SRS, 0.89) for the diagnosis is 10
 The number of features where AUC on the best assessment (SRS) reaches the AUC on the best assessment on all features (65) - 0.01 (0.88) is 19
 The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (65) - 0.01 (0.88) is 6
-
-
-	 Diag.Major Depressive Disorder
-
-
-CBCL has the highest AUC on all features with a value of 0.84
-The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.87
-The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.84) for the diagnosis is 2
-The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.83) is 5
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.83) is 2
-
-
-	 Diag.Language Disorder
-
-
-CBCL has the highest AUC on all features with a value of 0.69
-The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.73
-The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.69) for the diagnosis is 5
-The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.68) is 100
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.68) is 2
-
-
-	 Diag.Specific Learning Disorder with Impairment in Mathematics
-
-
-CBCL has the highest AUC on all features with a value of 0.64
-The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.71
-The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.64) for the diagnosis is 1
-The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.63) is 101
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.63) is 1
-
-
-	 Diag.ADHD-Inattentive Type
-
-
-SWAN has the highest AUC on all features with a value of 0.79
-The AUC on all assessments on the number of features equal to number of features on the best assessment (SWAN, 18) for the diagnosis is 0.79
-The number of features where AUC on all assessments reaches the AUC on the best assessment (SWAN, 0.79) for the diagnosis is 17
-The number of features where AUC on the best assessment (SWAN) reaches the AUC on the best assessment on all features (18) - 0.01 (0.78) is 14
-The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (18) - 0.01 (0.78) is 13
+The AUC using manual scoring is 0.86
 
 
 	 Diag.Social Anxiety (Social Phobia)
@@ -184,3 +44,169 @@ The AUC on all assessments on the number of features equal to number of features
 The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.84) for the diagnosis is 13
 The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.83) is 3
 The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.83) is 5
+The AUC using manual scoring is 0.71
+
+
+	 Diag.Specific Learning Disorder with Impairment in Reading
+
+
+CBCL has the highest AUC on all features with a value of 0.64
+The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.78
+The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.64) for the diagnosis is 2
+The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.63) is 4
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.63) is 2
+The AUC using manual scoring is 0.49
+
+
+	 Diag.Other Specified Anxiety Disorder
+
+
+SympChck has the highest AUC on all features with a value of 0.66
+The AUC on all assessments on the number of features equal to number of features on the best assessment (SympChck, 126) for the diagnosis is 0.62
+The number of features where AUC on all assessments reaches the AUC on the best assessment (SympChck, 0.66) for the diagnosis is not reached
+The number of features where AUC on the best assessment (SympChck) reaches the AUC on the best assessment on all features (126) - 0.01 (0.65) is 104
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (126) - 0.01 (0.65) is not reached
+The AUC using manual scoring is 0.61
+
+
+	 Diag.Separation Anxiety
+
+
+SympChck has the highest AUC on all features with a value of 0.84
+The AUC on all assessments on the number of features equal to number of features on the best assessment (SympChck, 126) for the diagnosis is 0.82
+The number of features where AUC on all assessments reaches the AUC on the best assessment (SympChck, 0.84) for the diagnosis is not reached
+The number of features where AUC on the best assessment (SympChck) reaches the AUC on the best assessment on all features (126) - 0.01 (0.83) is 5
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (126) - 0.01 (0.83) is 17
+The AUC using manual scoring is 0.70
+
+
+	 Diag.Generalized Anxiety Disorder
+
+
+CBCL has the highest AUC on all features with a value of 0.83
+The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.85
+The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.83) for the diagnosis is 3
+The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.82) is 13
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.82) is 2
+The AUC using manual scoring is 0.78
+
+
+	 Diag.Specific Learning Disorder with Impairment in Mathematics
+
+
+CBCL has the highest AUC on all features with a value of 0.64
+The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.71
+The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.64) for the diagnosis is 1
+The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.63) is 101
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.63) is 1
+The AUC using manual scoring is 0.58
+
+
+	 Diag.Specific Phobia
+
+
+SympChck has the highest AUC on all features with a value of 0.76
+The AUC on all assessments on the number of features equal to number of features on the best assessment (SympChck, 126) for the diagnosis is 0.78
+The number of features where AUC on all assessments reaches the AUC on the best assessment (SympChck, 0.76) for the diagnosis is 5
+The number of features where AUC on the best assessment (SympChck) reaches the AUC on the best assessment on all features (126) - 0.01 (0.75) is 6
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (126) - 0.01 (0.75) is 3
+The AUC using manual scoring is 0.66
+
+
+	 Diag.ADHD-Combined Type
+
+
+SWAN has the highest AUC on all features with a value of 0.85
+The AUC on all assessments on the number of features equal to number of features on the best assessment (SWAN, 18) for the diagnosis is 0.86
+The number of features where AUC on all assessments reaches the AUC on the best assessment (SWAN, 0.85) for the diagnosis is 5
+The number of features where AUC on the best assessment (SWAN) reaches the AUC on the best assessment on all features (18) - 0.01 (0.84) is 5
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (18) - 0.01 (0.84) is 4
+The AUC using manual scoring is 0.85
+
+
+	 Diag.ADHD-Inattentive Type
+
+
+SWAN has the highest AUC on all features with a value of 0.79
+The AUC on all assessments on the number of features equal to number of features on the best assessment (SWAN, 18) for the diagnosis is 0.79
+The number of features where AUC on all assessments reaches the AUC on the best assessment (SWAN, 0.79) for the diagnosis is 17
+The number of features where AUC on the best assessment (SWAN) reaches the AUC on the best assessment on all features (18) - 0.01 (0.78) is 14
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (18) - 0.01 (0.78) is 13
+The AUC using manual scoring is 0.66
+
+
+	 Diag.Major Depressive Disorder
+
+
+CBCL has the highest AUC on all features with a value of 0.84
+The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.87
+The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.84) for the diagnosis is 2
+The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.83) is 5
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.83) is 2
+The AUC using manual scoring is 0.76
+
+
+	 Diag.No Diagnosis Given
+
+
+CBCL has the highest AUC on all features with a value of 0.76
+The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.78
+The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.76) for the diagnosis is 10
+The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.75) is 72
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.75) is 7
+The AUC using manual scoring is 0.37
+
+
+	 Diag.Language Disorder
+
+
+CBCL has the highest AUC on all features with a value of 0.69
+The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.73
+The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.69) for the diagnosis is 5
+The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.68) is 100
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.68) is 2
+The AUC using manual scoring is 0.59
+
+
+	 Diag.Other Specified Attention-Deficit.Hyperactivity Disorder
+
+
+CBCL has the highest AUC on all features with a value of 0.71
+The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.68
+The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.71) for the diagnosis is not reached
+The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.70) is 9
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.70) is not reached
+The AUC using manual scoring is 0.49
+
+
+	 Diag.Oppositional Defiant Disorder
+
+
+CBCL has the highest AUC on all features with a value of 0.86
+The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.86
+The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.86) for the diagnosis is 3
+The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.85) is 8
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.85) is 3
+The AUC using manual scoring is 0.85
+
+
+	 Diag.Enuresis
+
+
+CBCL has the highest AUC on all features with a value of 0.81
+The AUC on all assessments on the number of features equal to number of features on the best assessment (CBCL, 121) for the diagnosis is 0.88
+The number of features where AUC on all assessments reaches the AUC on the best assessment (CBCL, 0.81) for the diagnosis is 2
+The number of features where AUC on the best assessment (CBCL) reaches the AUC on the best assessment on all features (121) - 0.01 (0.80) is 2
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (121) - 0.01 (0.80) is 2
+The AUC using manual scoring is 0.65
+
+
+	 Diag.Specific Learning Disorder with Impairment in Written Expression
+
+
+SWAN has the highest AUC on all features with a value of 0.57
+The AUC on all assessments on the number of features equal to number of features on the best assessment (SWAN, 18) for the diagnosis is 0.56
+The number of features where AUC on all assessments reaches the AUC on the best assessment (SWAN, 0.57) for the diagnosis is 4
+The number of features where AUC on the best assessment (SWAN) reaches the AUC on the best assessment on all features (18) - 0.01 (0.56) is 8
+The number of features where AUC on all assessments reaches the value the AUC on the best assessment on all features (18) - 0.01 (0.56) is 6
+The AUC using manual scoring is 0.56
