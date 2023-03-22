@@ -65,7 +65,7 @@ for assessment_name in assessment_item_counts.keys():
 best_assessment_per_diagnosis_and_score = {}
 
 # Get AUCs from manual scoring
-manual_scoring_df = pd.read_csv("../HBN-scripts/output/score_manually.csv")
+manual_scoring_df = pd.read_csv("../HBN-scripts/manual_scoring_analysis/output/best_scores.csv")
 
 diags = set(all_assessments_df.columns)
 print(diags)
